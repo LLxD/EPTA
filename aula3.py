@@ -12,18 +12,29 @@
 #bibliotecas interessantes e módulos legais :D
 #random https://docs.python.org/3/library/random.html
 #math https://docs.python.org/3/library/math.html
+#unittest https://docs.python.org/3/library/unittest.html
 
 import random
+import unittest
 import math
 
 
 dado_6_lados = random.randint(1,6)
 print(dado_6_lados)
 
+#testes unitarios -> introdução e TDD!
+def teste_unitario_dado(dado):
+    assert dado <= 6,"O valor do dado obtido foi maior que 6"
+    print("O dado tem o valor <= 6 :D")
+    print("Todos os testes passaram!")
+
+teste_unitario_dado(dado_6_lados)
+
+
+
 print(math.sqrt(15))
 print(math.sin(math.pi/6))
 print(math.cos(math.radians(60)))
-
 
 
 #numpy
@@ -48,6 +59,7 @@ ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
 
 # plt.show()
 plt.savefig("matplotlib.png")
+
 #POO
 
 
