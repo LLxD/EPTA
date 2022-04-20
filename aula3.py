@@ -1,4 +1,13 @@
 #recap
+#variaveis
+#operações matemáticas (+ - / * ** // %)
+#booleanos (True e False) e operadores comparativos > < >= <= != 
+#lógica condicional if() elseif() else
+#listas = [1,2,3,4,5]
+#métodos para listas -> append, remove, insert, sort
+#laços de repetição -> for e while
+#funções -> def função():
+#recursão -> def função(): função() break
 
 #bibliotecas interessantes e módulos legais :D
 #random https://docs.python.org/3/library/random.html
@@ -27,7 +36,7 @@ plt.style.use('_mpl-gallery')
 
 # make data
 x = np.linspace(0, 10, 100)
-y = 4 + 2 * np.sin(2 * x)
+y = 4 + np.sin(x)
 
 # plot
 fig, ax = plt.subplots()
@@ -37,7 +46,8 @@ ax.plot(x, y, linewidth=2.0)
 ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
        ylim=(0, 8), yticks=np.arange(1, 8))
 
-plt.show()
+# plt.show()
+plt.savefig("matplotlib.png")
 #POO
 
 
