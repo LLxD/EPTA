@@ -73,6 +73,9 @@ else:
 Enunciado: Nosso programa deve fazer o cálculo do IMC de um usuário
 ```
 IMC
+FÓRMULA = PESO/(ALTURA²)
+
+POSSÍVEIS RESULTADOS
 < 18,5 = MAGREZA
 >= 18,5 E <= 24,9 NORMAL
 >= 25 E <= 29,9 SOBREPESO
