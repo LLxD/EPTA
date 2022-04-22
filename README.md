@@ -6,7 +6,7 @@ Links:
 
 - [Aula 1](https://www.youtube.com/watch?v=vF6ZNMKDQeU)
 - [Aula 2](https://www.youtube.com/watch?v=duneiZ1g4AI)
-- [Aula 3]()
+- [Aula 3](https://www.youtube.com/watch?v=QSy4wNesAmk)
 - [Replit - Compilador Online](https://replit.com/new/python3)
 - [Download Python](https://www.python.org/downloads/)
 
@@ -69,7 +69,7 @@ else:
 
 ``` 
 
-## Exercício de Cálculo do IMC:
+## Exercício 1 - Cálculo do IMC:
 Enunciado: Nosso programa deve fazer o cálculo do IMC de um usuário
 ```
 IMC
@@ -188,5 +188,208 @@ Para podermos encapsular nosso código e nos organizarmos melhor, podemos separa
 Exemplos de funções:
 ```python
 
+def ola():
+    print("Ola!")
+
+
+def ola_com_parametros(nome):
+    print("Ola!" + " " + nome)
+
+ola()
+
+ola_com_parametros("Lucas")
+
+```
+
+
+## Exercício 2 - Encapsular o código de cálculo de IMC em uma função
+
+A ideia desse exercício é simplesmente encapsular toda a lógica do exercício de IMC em uma função, para que possamos deixar nosso código mais organizado!
+
+<details>
+  <summary>Aviso de Spoiler da Resposta</summary>
+  
+
+  ```python
+
+
+altura = float(input("Digite sua altura "))
+peso = float(input("Digite seu peso "))
+
+def calcula_imc(peso,altura):
+    imc = peso / (altura ** 2)
+    if (imc < 18.5):
+        print("magreza")
+    elif (imc >= 18.5 and imc <= 25):
+        print("normal")
+    elif (imc > 25 and imc <= 29.9):
+        print("sobrepeso")
+    else:
+        print("obesidade")
+    return imc
+
+
+valor_final = calcula_imc(peso,altura)
+print(valor_final)
+
+``` 
+</details>
+
+## Funções Recursivas
+Funções recursivas são funções que chamam elas mesmas em seu interior. (É um conceito complexo e leva tempo pra digerir e entender direitinho! Vocês podem ler mais [aqui](https://realpython.com/python-thinking-recursively/)).
+O importante, é lembrarmos da condição de parada (também chamada de caso base), que é um caso da nossa função que vai ser o momento de retorno, onde a função acaba para não acabarmos com um loop infinito.
+
+Exemplo de função recursiva:
+
+  ```python
+
+def fatorial(numero):
+    print(numero)
+    if numero == 1: #<- CASO BASE
+        return 1 
+    else:
+        return(numero*fatorial(numero-1))
+
+fatorial(10)
+
+``` 
+
+## Bibliotecas Interessantes e módulos legais :D
+
+Nessa seção, vou apresentar alguns módulos e coisas legais que o python fornece pra gente trabalhar. São só alguns exemplos de coisas que o Python pode fazer, mas num geral, existem muitas coisas além disso. Vocês podem conferir algumas coisas [aqui](https://github.com/vinta/awesome-python).
+
+<details>
+  <summary>Aleatoriedade</summary>
+Para aleatoriedade, normalmente utilizamos o módulo random.
+
+  ```python
+
+import random
+#random https://docs.python.org/3/library/random.html
+
+dado_6_lados = random.randint(1,6)
+print(dado_6_lados)
+
+
+``` 
+  
+</details>
+
+<details>
+  <summary>Testes Unitários</summary>
+É importante mantermos testes do nosso código automatizados, garantindo que o nosso código de fato produza o resultado desejado sem termos que verificar manualmente, para isso, podemos usar o módulo unittest.
+
+  ```python
+
+import random
+import unittest
+#unittest https://docs.python.org/3/library/unittest.html
+
+dado_6_lados = random.randint(1,6)
+print(dado_6_lados)
+
+
+def teste_unitario_dado(dado):
+    assert dado <= 6,"O valor do dado obtido foi maior que 6"
+    print("O dado tem o valor <= 6 :D")
+    print("Todos os testes passaram!")
+
+teste_unitario_dado(dado_6_lados)
+
+
+``` 
+
+Normalmente, os testes ficam em outro arquivo (que pode ser executado separadamente, via terminal). Além disso, existe um método de desenvolvimento de software guiado por testes chamado TDD, que vocês podem saber mais sobre [aqui] (https://www.freecodecamp.org/news/learning-to-test-with-python-997ace2d8abe/).
+
+  
+</details>
+
+<details>
+  <summary>Matemática científica</summary>
+O Python é show com matemática e dá pra utilizar o módulo math, a lib numpy e a lib matplotlib pra gerarmos muito conteúdo científico em termos de matemática! Seguem alguns exemplos:
+
+  ```python
+
+import math
+#math https://docs.python.org/3/library/math.html
+#matplotlib https://matplotlib.org/
+#numpy https://numpy.org/
+
+#math -> Alguns cálculos mais complicados
+
+
+print(math.sqrt(15))
+print(math.sin(math.pi/6))
+print(math.cos(math.radians(60)))
+
+
+#numpy matemática mais avançada e funções auxiliares show
+#matplotlib plotagem de gráficos
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.style.use('_mpl-gallery')
+
+# make data
+x = np.linspace(0, 10, 100)
+y = 4 + np.sin(x)
+
+# plot
+fig, ax = plt.subplots()
+
+ax.plot(x, y, linewidth=2.0)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+# plt.show()
+plt.savefig("matplotlib.png")
+
+``` 
+  
+</details>
+
+
+## Programação Orientada a Objetos (POO)
+
+Nesse paradigma, utilizamos a ideia de classe para criarmos novos tipos de estruturas de dados que podem nos auxiliar na construção de uma aplicação.
+O método ```__init__``` é chamado de contrutor.
+POO é muito extensa e essa seção é só uma ideia pra aflorar na cabeça de vocês! POO é muito utilizada em jogos e aplicações mais robustas justamente pela sua maior facilidade em deixar código grande organizado e com uma certa facilidade em termos de manutenção.
+Quando criamos uma nova variável com base em uma classe que criamos, chamamos esse processo de __instanciar__ um objeto da classe.
+
+Exemplos:
+
+```python
+
+class Pessoa:
+    def __init__(self, nome:str, idade:int):
+        self.nome = nome
+        self.idade = idade
+    
+    def ola(self):
+        print("Ola, eu sou "+self.nome+ " e tenho " + str(self.idade) + " anos")
+
+lucas = Pessoa(nome="Lucas",idade=23) #<- lucas é uma instancia de pessoa
+print(lucas.idade)
+lucas.ola()
+
+
+
+class Retangulo:
+    def __init__(self, altura:float, largura:float):
+        self.altura = altura
+        self.largura = largura
+
+    def area(self):
+        return(self.altura * self.largura)
+
+    def perimetro(self):
+        return(self.altura * 2 + self.largura * 2)
+
+meu_primeiro_retangulo = Retangulo(altura = 10,largura = 20) #<- meu_primeiro_retangulo é uma instancia de Retangulo
+meu_segundo_retangulo = Retangulo(altura = 5,largura = 12) #<- meu_segundo_retangulo é uma outra instancia de Retangulo
+print(meu_primeiro_retangulo.area())
+print(meu_segundo_retangulo.area()) 
 
 ```
